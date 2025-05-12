@@ -1,0 +1,181 @@
+/* Gallery Container */
+.gallery-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+.gallery-heading {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 2.5rem;
+  color: #333;
+  text-shadow: 1px 1px 3px #ccc;
+}
+
+/* Carousel Card Styling */
+.carousel-card {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.1));
+  border-radius: 16px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Image Container */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 450px; /* Adjusted for a smaller image size */
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* Image Styling */
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fully covers the container */
+  object-position: center; /* Keeps the image centered */
+  transition: transform 0.3s ease;
+}
+
+/* Hover Effect for Image */
+.carousel-card:hover .carousel-image {
+  transform: scale(1.05);
+}
+
+/* Overlay Styling */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  color: white;
+  padding: 1.5rem 2rem;
+  border-radius: 0 0 16px 16px;
+}
+
+.overlay-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.overlay-description {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.nav-btn {
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0.8rem;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effect for Buttons */
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+}
+
+/* Card Hover Effect */
+.carousel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Animated Blobs */
+.animated-blobs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  opacity: 0.25;
+  animation: floatBlob 18s infinite ease-in-out;
+  mix-blend-mode: multiply;
+}
+
+@keyframes floatBlob {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+/* Ring Animation */
+.ring {
+  position: absolute;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  top: 20%;
+  left: 20%;
+  animation: pulse 6s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .gallery-heading {
+    font-size: 2.5rem;
+  }
+
+  .carousel-card {
+    max-width: 100%;
+    border-radius: 12px;
+  }
+
+  .image-container {
+    height: 400px;
+  }
+
+  .overlay-title {
+    font-size: 2rem;
+  }
+
+  .overlay-description {
+    font-size: 1rem;
+  }
+}
